@@ -1,0 +1,193 @@
+/* src/components/vendedor/SeleccionAsientos.css */
+.seleccion-asientos-container {
+    padding: 20px;
+    max-width: 750px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-volver-listado {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+.btn-volver-listado:hover {
+    background-color: #5a6268;
+}
+
+.seleccion-asientos-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.info-viaje-seleccion {
+    background-color: #e9ecef;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid #ced4da;
+}
+.info-viaje-seleccion p { margin: 5px 0; font-size: 0.95em; color: #495057; }
+.info-viaje-seleccion strong { color: #0056b3; }
+
+.leyenda-asientos-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    font-size: 0.9em;
+    gap: 20px;
+}
+.leyenda-item { display: flex; align-items: center; }
+
+.asiento-ejemplo { /* Estilos base para los cuadrados de la leyenda */
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    margin-right: 5px;
+    display: inline-block; /* Necesario para que se apliquen bien los estilos de .asiento */
+}
+
+/* Los ejemplos de la leyenda usan las mismas clases que los asientos reales */
+/* .asiento-ejemplo.asiento -> para el verde (disponible) */
+/* .asiento-ejemplo.asiento.ocupado -> para el rojo */
+/* .asiento-ejemplo.asiento.seleccionado -> para el azul */
+
+
+.mapa-asientos-render {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+.frente-omnibus-barra {
+    background-color: #4a5568;
+    color: white;
+    padding: 8px 0;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+}
+
+.fila-asientos {
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ESTILOS DE ASIENTOS */
+/* Por defecto, .asiento es DISPONIBLE (VERDE) */
+.asiento {
+    width: 38px;
+    height: 38px;
+    margin: 4px;
+    border: 1px solid #7FAE9B; /* Borde verde */
+    background-color: #a7d7c5; /* Verde claro para disponible */
+    color: #2f5a4a;            /* Texto oscuro para contraste */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.1s ease, border-color 0.2s ease, color 0.2s ease;
+    box-sizing: border-box;
+}
+.asiento:hover:not(:disabled) {
+    background-color: #8dc4b3; /* Verde un poco más oscuro al pasar el mouse */
+    transform: scale(1.05);
+}
+
+/* Sobrescribe para OCUPADO (ROJO) */
+.asiento.ocupado {
+    background-color: #f6a6a5; /* Rojo claro */
+    border-color: #D97A79;
+    color: #8c3b3a;
+    cursor: not-allowed;
+}
+.asiento.ocupado:hover { /* Evitar efecto hover en ocupados */
+    background-color: #f6a6a5;
+    transform: none;
+}
+
+/* Sobrescribe para SELECCIONADO (AZUL) */
+.asiento.seleccionado {
+    background-color: #5c9ead; /* Azul */
+    border-color: #327D8E;
+    color: white;
+    /* Opcional: un resaltado extra si lo deseas */
+    /* box-shadow: 0 0 0 2px #327D8E; */
+    /* transform: scale(1.05); ya está en el hover, pero puedes añadirlo aquí si quieres que sea permanente mientras está seleccionado */
+}
+/* Si quieres un hover diferente para el seleccionado: */
+.asiento.seleccionado:hover:not(:disabled) {
+    background-color: #50919f;
+    border-color: #2a7081;
+}
+
+
+.pasillo {
+    width: 30px;
+    height: 38px; /* Misma altura que los asientos */
+    margin: 4px;  /* Mismos márgenes laterales que los asientos */
+}
+
+.resumen-seleccion-actual {
+    text-align: center;
+    padding: 20px;
+    background-color: #e2e8f0;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid #cbd5e0;
+}
+.resumen-seleccion-actual h3 { margin-top: 0; margin-bottom: 15px; color: #2d3748; }
+.asiento-numero-grande {
+    font-size: 2em; font-weight: bold; color: #2c5282; background-color: #fff;
+    border: 2px solid #2c5282; border-radius: 50%; width: 60px; height: 60px;
+    line-height: 56px; margin: 0 auto 15px auto; display: inline-block;
+}
+.resumen-seleccion-actual p { margin: 8px 0; color: #4a5568; }
+
+.btn-continuar-checkout {
+    background-color: #38a169; color: white; border: none; padding: 12px 25px;
+    border-radius: 5px; cursor: pointer; font-size: 1.1em; font-weight: bold;
+    margin-top: 15px; transition: background-color 0.2s ease;
+}
+.btn-continuar-checkout:hover:not(:disabled) { background-color: #2f855a; }
+.btn-continuar-checkout:disabled { background-color: #a0aec0; cursor: not-allowed; }
+
+.mensaje-seleccionar-asiento {
+    text-align: center; color: #718096; margin-top: 20px; padding: 15px;
+    background-color: #f7fafc; border: 1px dashed #e2e8f0; border-radius: 4px;
+}
+
+.loading-mensaje { text-align: center; padding: 20px; color: #2c5282; }
+.error-mensaje {
+    text-align: center; padding: 15px; color: #c53030; background-color: #fed7d7;
+    border: 1px solid #f56565; border-radius: 4px; margin: 15px 0;
+}

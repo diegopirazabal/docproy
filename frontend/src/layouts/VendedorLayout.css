@@ -1,0 +1,146 @@
+/* src/layouts/VendedorLayout.css */
+
+.vendedor-layout {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+}
+
+.vendedor-sidebar {
+    width: 260px;
+    background-color: #343a40; /* GRIS OSCURO (CARBÓN) */
+    color: #adb5bd; /* Color de texto claro para contraste con fondo oscuro */
+    padding: 20px;
+    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #495057; /* Borde un poco más claro que el fondo */
+    text-align: center;
+}
+
+.sidebar-logo-link {
+    text-decoration: none;
+    color: #f8f9fa; /* Texto del logo casi blanco para destacar */
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.sidebar-nav {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav .nav-link {
+    display: block;
+    padding: 10px 15px;
+    color: #ced4da; /* Color de enlace normal, más claro */
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.sidebar-nav .nav-link:hover {
+    background-color: #495057; /* Fondo ligeramente más claro al pasar el mouse */
+    color: #f8f9fa; /* Texto casi blanco al pasar el mouse */
+}
+
+.sidebar-nav .nav-link.active {
+    background-color: #007bff; /* Azul vibrante para enlace activo */
+    color: #fff; /* Texto blanco para enlace activo */
+    font-weight: 500;
+}
+
+.sidebar-nav .nav-link span {
+    vertical-align: middle;
+}
+
+.sidebar-footer {
+    padding-top: 20px;
+    margin-top: auto;
+    border-top: 1px solid #495057; /* Borde un poco más claro que el fondo */
+    text-align: center;
+    font-size: 0.85rem;
+    color: #adb5bd; /* Mismo color que el texto general del sidebar */
+}
+
+.vendedor-content {
+    flex-grow: 1;
+    padding: 25px;
+    background-color: #f8f9fa; /* Un gris muy claro para el contenido, buen contraste */
+    overflow-y: auto;
+}
+
+/* --- Estilos para Menú Móvil --- */
+.mobile-menu-toggle {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1001;
+    background-color: #343a40; /* Mismo color gris oscuro que el sidebar */
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Sombra un poco más notoria */
+}
+
+.mobile-menu-toggle svg {
+    display: block;
+}
+
+/* --- Media Query para Móviles (ej. hasta 768px) --- */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .vendedor-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        transform: translateX(-100%);
+        z-index: 1000;
+        width: 280px;
+        box-shadow: 3px 0 15px rgba(0,0,0,0.25); /* Sombra un poco más notoria */
+    }
+
+    .vendedor-sidebar.open {
+        transform: translateX(0);
+    }
+
+    .vendedor-content {
+        margin-left: 0;
+    }
+
+    /* Opcional: Oscurecer el contenido principal cuando el menú móvil está abierto */
+    .vendedor-layout.mobile-menu-active .vendedor-content {
+        /* filter: brightness(0.7); */
+    }
+    /* Opcional: Overlay oscuro */
+    /* .vendedor-layout.mobile-menu-active::after {
+        content: '';
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: rgba(0,0,0,0.6); // Overlay un poco más oscuro
+        z-index: 999;
+    } */
+}

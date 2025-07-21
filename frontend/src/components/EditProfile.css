@@ -1,0 +1,147 @@
+/* src/components/EditProfile.css */
+
+.edit-profile-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 60px - 70px);
+    padding: 20px;
+    background-color: #f4f7f6;
+    box-sizing: border-box;
+}
+
+.edit-profile-form-container {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 650px;
+    box-sizing: border-box;
+}
+
+.edit-profile-form-container h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.edit-profile-form .form-group {
+    margin-bottom: 22px;
+    text-align: left;
+}
+
+.edit-profile-form .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #4a5568;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.edit-profile-form .form-group input[type="text"],
+.edit-profile-form .form-group input[type="email"],
+.edit-profile-form .form-group input[type="date"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #2d3748;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.edit-profile-form .form-group input[type="text"]:focus,
+.edit-profile-form .form-group input[type="email"]:focus,
+.edit-profile-form .form-group input[type="date"]:focus {
+    border-color: #4299e1;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(66, 153, 225, 0.25);
+}
+
+.edit-profile-form .form-group input:disabled {
+    background-color: #e2e8f0;
+    color: #718096;
+    cursor: not-allowed;
+    border-color: #e2e8f0;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 14px;
+    background-color: #38a169;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 15px;
+}
+
+.submit-button:hover:not(:disabled) {
+    background-color: #2f855a;
+}
+
+.submit-button:disabled {
+    background-color: #9ae6b4;
+    cursor: not-allowed;
+}
+
+.error-message, .success-message {
+    font-size: 0.9em;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    padding: 12px 15px;
+    border-radius: 6px;
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.error-message {
+    color: #c53030;
+    background-color: #fed7d7;
+    border-color: #fc8181;
+}
+
+.success-message {
+    color: #2f855a;
+    background-color: #c6f6d5;
+    border-color: #68d391;
+}
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    font-size: 1.2em;
+    color: #4a5568;
+}
+
+@media (max-width: 700px) {
+    .edit-profile-form-container {
+        padding: 25px 20px;
+        margin: 20px 0;
+    }
+    .edit-profile-form-container h2 {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+    }
+    .edit-profile-form .form-group input[type="text"],
+    .edit-profile-form .form-group input[type="email"],
+    .edit-profile-form .form-group input[type="date"] {
+        padding: 10px 12px;
+    }
+    .submit-button {
+        padding: 12px;
+        font-size: 1em;
+    }
+}

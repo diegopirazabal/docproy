@@ -1,0 +1,269 @@
+/* src/pages/ClienteListarPasajes.css */
+.listar-pasajes-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    color: #555;
+    font-size: 1.2em;
+}
+
+.loading-spinner {
+    border: 6px solid #f3f3f3; /* Light grey */
+    border-top: 6px solid #007bff; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-left: 5px solid #c62828;
+}
+
+.no-pasajes-message {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #fff;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.no-pasajes-message p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.pasajes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.pasaje-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.pasaje-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+.pasaje-card-header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pasaje-card-header h3 {
+    margin: 0;
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+.pasaje-estado {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pasaje-estado-vendido { /* Asegúrate que los estados coincidan con los de tu backend (en minúsculas) */
+    background-color: #28a745; /* Verde */
+    color: white;
+}
+.pasaje-estado-cancelado {
+    background-color: #dc3545; /* Rojo */
+    color: white;
+}
+.pasaje-estado-reservado {
+    background-color: #ffc107; /* Amarillo */
+    color: #333;
+}
+.pasaje-estado-utilizado {
+    background-color: #6c757d; /* Gris */
+    color: white;
+}
+/* Añade más estados si los tienes */
+
+
+.pasaje-card-body {
+    padding: 20px;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.pasaje-card-body p {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.pasaje-card-body p strong {
+    color: #333;
+    margin-right: 5px;
+}
+
+.pasaje-card-footer {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
+    text-align: right;
+}
+
+/* Botones genéricos (reutiliza si tienes uno global) */
+.cta-button, .info-button, .back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button {
+    background-color: #007bff;
+    color: white;
+}
+.cta-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+.info-button {
+    background-color: #17a2b8;
+    color: white;
+    margin-left: 10px;
+}
+.info-button:hover {
+    background-color: #138496;
+}
+
+.back-button {
+    background-color: #6c757d;
+    color: white;
+}
+.back-button:hover {
+    background-color: #5a6268;
+}
+
+.actions-container.bottom-actions {
+    text-align: center;
+    margin-top: 30px;
+}
+.filtros-form-pasajes {
+    display: grid; /* Usamos grid para un mejor control */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Columnas responsivas */
+    gap: 20px; /* Espacio entre elementos del grid */
+    align-items: end; /* Alinea los elementos al final de su celda (útil si tienen alturas diferentes) */
+    margin-bottom: 35px;
+    padding: 25px;
+    background-color: #ffffff; /* Fondo más claro */
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07); /* Sombra más sutil */
+    border: 1px solid #e7e7e7;
+}
+
+.filtro-grupo-pasajes {
+    display: flex;
+    flex-direction: column;
+    /* flex: 1 1 200px; No es tan necesario con grid */
+}
+
+.filtro-grupo-pasajes label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #4A5568; /* Un gris más oscuro y moderno */
+    font-size: 0.9em;
+    text-transform: uppercase; /* Opcional: para un look más formal */
+    letter-spacing: 0.5px; /* Opcional */
+}
+
+.filtro-grupo-pasajes input[type="text"],
+.filtro-grupo-pasajes input[type="date"],
+.filtro-grupo-pasajes select { /* Aunque ya no usamos select, lo dejamos por si se añade en el futuro */
+    padding: 12px 15px; /* Más padding */
+    border: 1px solid #CBD5E0; /* Borde más suave */
+    border-radius: 6px; /* Bordes más redondeados */
+    font-size: 1em; /* Tamaño de fuente estándar */
+    background-color: #F7FAFC; /* Fondo muy claro para el input */
+    color: #2D3748; /* Color de texto del input */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filtro-grupo-pasajes input::placeholder {
+    color: #A0AEC0; /* Color del placeholder */
+}
+
+.filtro-grupo-pasajes input:focus,
+.filtro-grupo-pasajes select:focus {
+    outline: none;
+    border-color: #3182CE; /* Un azul estándar para el foco */
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.25); /* Sombra de foco sutil */
+    background-color: #fff;
+}
+
+/* Si quieres un botón de "Limpiar Filtros" o "Aplicar" (aunque ahora es automático) */
+.filtros-form-pasajes button {
+    padding: 12px 20px;
+    background-color: #3182CE;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    grid-column: span 1; /* Para que ocupe una celda del grid */
+    /* Si quieres que el botón ocupe todo el ancho disponible en la última fila si es el único: */
+    /* Si solo hay 1 o 2 elementos en la última fila, puede que quieras esto:
+    /* &:last-child:nth-child(odd), &:last-child:nth-child(even) { grid-column: 1 / -1; } */
+}
+
+.filtros-form-pasajes button:hover {
+    background-color: #2B6CB0;
+}

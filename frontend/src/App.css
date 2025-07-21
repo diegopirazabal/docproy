@@ -1,0 +1,15 @@
+/* src/App.css o tu archivo de estilos globales */
+body {
+  margin: 0; /* Asegura que no haya márgenes por defecto */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Si el header es sticky, necesitas padding en el contenido principal */
+.main-content {
+  padding-top: 60px; /* Ajusta este valor a la altura de tu header */
+  /* La altura del header es padding (10px*2) + altura del logo/texto (aprox 40px) = 60px */
+}

@@ -1,0 +1,164 @@
+/* src/components/Register.css */
+
+.register-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 60px - 70px); /* Ajusta según altura de header/footer */
+    padding: 40px 20px;
+    background-color: #f4f7f6;
+    box-sizing: border-box;
+}
+
+.register-form-container {
+    background-color: #fff;
+    padding: 35px 45px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.register-form-container h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.register-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.register-form .form-row {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+/* Esta clase es para los inputs que están DENTRO de un .form-row */
+.register-form .form-group.half-width {
+    flex: 1;
+    margin-bottom: 0; /* El .form-row ya maneja el margen inferior general */
+}
+
+.register-form .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #454545;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+/* Regla general para todos los inputs directos dentro de un .form-group */
+/* Esto incluye Nombre, Apellido, CI, Email, Contraseña, ConfirmarContraseña */
+.register-form .form-group > input[type="text"],
+.register-form .form-group > input[type="email"],
+.register-form .form-group > input[type="password"],
+.register-form .form-group > input[type="date"] {
+    width: 100%; /* Asegura que ocupen todo el ancho de su .form-group padre */
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+/* Estilos para inputs dentro de .form-group.half-width (si es necesario anular algo) */
+/* En este caso, heredan width: 100% de la regla anterior, lo cual es correcto para que llenen su contenedor half-width */
+.register-form .form-group.half-width input[type="text"],
+.register-form .form-group.half-width input[type="date"] {
+    /* width: 100%; ya está heredado y es correcto */
+}
+
+
+.register-form .form-group input:focus { /* Aplica a todos los inputs al hacer focus */
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(0,123,255,.25);
+}
+
+.register-button {
+    width: 100%;
+    padding: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.15em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 20px;
+}
+
+.register-button:hover {
+    background-color: #0056b3;
+}
+
+.register-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.error-message, .success-message {
+    font-size: 0.9em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding: 12px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.error-message {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+.success-message {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+.login-link-text {
+    margin-top: 30px;
+    font-size: 0.95em;
+    color: #555;
+}
+
+.login-link-text a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link-text a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 650px) {
+    .register-form .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .register-form .form-group.half-width {
+        margin-bottom: 20px;
+    }
+    /* Evita doble margen si el half-width es el último elemento antes de un form-row que ya tiene margen */
+    .register-form .form-group.half-width:last-child {
+        margin-bottom: 0;
+    }
+    .register-form-container {
+        padding: 25px 20px;
+        margin: 20px 0;
+    }
+    .register-form-container h2 {
+        font-size: 1.8em;
+    }
+}

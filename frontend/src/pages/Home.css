@@ -1,0 +1,291 @@
+/* ==========================================================================
+   Estilos para la Página de Inicio (Home.js)
+   ========================================================================== */
+
+/* --- Sección Principal (Hero) --- */
+
+.hero-section {
+    /* Esta es la definición correcta y única que debes tener. */
+    /* La ruta '/images/uru.png' es correcta para archivos en la carpeta 'public'. */
+    /* ¡Puedes ignorar de forma segura el error que te muestra tu editor de código aquí! */
+    background: linear-gradient(rgba(45, 34, 107, 0.7), rgba(45, 34, 107, 0.8)), url('uruu.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 6rem 1rem;
+}
+
+.hero-content {
+    max-width: 950px; /* Ancho máximo para alinear con el formulario */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-title-main {
+    font-size: 2.8rem;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    margin-bottom: 2rem;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    line-height: 1.7;
+    color: #f0f0f0; /* Color claro para ser legible sobre el fondo oscuro */
+}
+
+
+/* --- Formulario de Búsqueda de Viajes --- */
+
+.search-form-home {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    align-items: stretch;
+    max-width: 950px;
+    margin: 0 auto 2rem auto; /* Centrado y con margen inferior */
+}
+
+.form-group-home {
+    flex: 1 1 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid #e0e0e0;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.form-group-home:last-of-type,
+.search-button-home {
+    border-right: none;
+}
+
+.form-group-home label {
+    font-size: 0.8rem;
+    color: #555;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+.form-group-home input,
+.form-group-home select {
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    padding: 0.3rem 0;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #333;
+}
+
+.form-group-home input:focus,
+.form-group-home select:focus {
+    outline: none;
+}
+
+.form-group-pasajeros {
+    flex-basis: 100px;
+    flex-grow: 0;
+}
+
+.search-button-home {
+    flex-basis: 120px;
+    flex-grow: 0;
+    background-color: #3a2e8a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1rem;
+}
+
+.search-button-home:hover {
+    background-color: #2c2268;
+}
+
+.search-button-home .fa-search {
+    font-size: 1rem;
+}
+
+
+/* --- Botones de Acción para Usuarios Logueados --- */
+
+.cliente-actions-home {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 14px 35px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.user-specific-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.admin-dashboard-button {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: #e67e22;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1.05em;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    border: none;
+    cursor: pointer;
+}
+
+.admin-dashboard-button:hover {
+    background-color: #d35400;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
+
+/* --- Sección de Lugares Turísticos --- */
+
+.lugares-section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2em;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #3498db;
+}
+
+.lugares-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.lugar-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lugar-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.lugar-imagen-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.lugar-imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.lugar-card-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.lugar-card-content h3 {
+    font-size: 1.4em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.lugar-card-content p {
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+
+/* --- Estilos Responsivos --- */
+
+@media (max-width: 768px) {
+    .search-form-home {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-group-home {
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 0.8rem 0.5rem;
+    }
+
+    .form-group-home:last-of-type {
+        border-bottom: none;
+    }
+
+    .search-button-home {
+        width: 100%;
+        margin-top: 1rem;
+    }
+}

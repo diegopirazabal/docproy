@@ -1,0 +1,185 @@
+/* src/pages/admin/AdminUserBatchUploadPage.css */
+
+.batch-upload-page-container {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.batch-upload-page-container h2 {
+    font-size: 2em;
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.upload-instructions {
+    background-color: #f8f9fa;
+    border: 1px dashed #d6d9dc;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.upload-instructions p {
+    margin-top: 0;
+    font-size: 1.1em;
+    color: #34495e;
+}
+
+.upload-instructions code {
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    display: block;
+    word-break: break-all;
+    margin: 15px 0;
+    line-height: 1.5;
+    font-size: 0.9em;
+}
+
+.upload-instructions small {
+    color: #6c757d;
+    font-size: 0.95em;
+    display: block;
+    margin-top: 10px;
+}
+
+.upload-control-panel {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* --- TRUCO PARA ESTILIZAR EL INPUT DE ARCHIVO --- */
+.file-input-wrapper {
+    position: relative; /* Clave para que el input oculto funcione */
+    flex-grow: 1; /* Ocupa el espacio sobrante */
+    display: flex;
+    align-items: center;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    overflow: hidden; /* Para que el input no se salga */
+    height: 48px; /* Altura fija para alineación */
+    transition: box-shadow 0.2s;
+}
+.file-input-wrapper:hover {
+    box-shadow: 0 0 0 0.15rem rgba(52, 152, 219, 0.2);
+    border-color: #80bdff;
+}
+
+/* 1. El input real se oculta, pero sigue siendo funcional */
+.file-input-wrapper input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Lo hacemos invisible */
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* 2. El label se estiliza para parecer un botón */
+.file-input-wrapper .file-input-label {
+    background-color: #e9ecef;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    color: #495057;
+    border-right: 1px solid #ced4da;
+    white-space: nowrap;
+}
+
+/* 3. El span muestra el nombre del archivo seleccionado */
+.file-input-wrapper .file-name-display {
+    padding: 0 15px;
+    color: #6c757d;
+    font-size: 0.9em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.upload-button {
+    padding: 12px 25px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.05em;
+    font-weight: 600;
+    height: 48px;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+.upload-button:hover { background-color: #2980b9; }
+.upload-button:disabled { background-color: #bdc3c7; cursor: not-allowed; }
+
+/* --- Contenedor de Resultados --- */
+.upload-results {
+    margin-top: 30px;
+    border-top: 2px solid #e0e0e0;
+    padding-top: 25px;
+}
+.upload-results h4 { font-size: 1.6em; color: #2c3e50; margin-top: 0; }
+
+.results-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+.results-summary p { margin: 0; font-size: 1.1em; color: #34495e; }
+.results-summary strong { font-weight: 600; color: #2c3e50; }
+
+.results-details-section { margin-top: 25px; }
+.results-details-section h5 { font-size: 1.3em; margin-bottom: 15px; }
+
+.details-list {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px 15px;
+    list-style-type: none;
+    margin: 0;
+}
+.details-list.success-details { border-left: 5px solid #28a745; }
+.details-list.failure-details { border-left: 5px solid #dc3545; }
+.details-list li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.details-list li:last-child { border-bottom: none; }
+.details-list li span { color: #6c757d; }
+
+/* Mensajes de Error */
+.form-error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    white-space: pre-line;
+}

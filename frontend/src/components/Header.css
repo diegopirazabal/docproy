@@ -1,0 +1,147 @@
+/* src/components/Header.css */
+.app-header {
+    background-color: #333; /* Un gris oscuro */
+    color: white;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header-main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.header-center-nav {
+    margin-left: 2rem;
+    display: flex;
+    gap: 10px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.logo-image {
+    height: 40px;
+    margin-right: 15px;
+}
+
+.header-left h1 {
+    font-size: 1.5em;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* --- ESTILO MODIFICADO --- */
+/* Alinear la campana y el menú de usuario */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espacio entre la campana y el menú del usuario */
+}
+
+.user-actions, .main-menu-button-container {
+    position: relative;
+}
+
+.user-menu-button, .main-menu-button, .header-nav-button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.header-nav-button.register {
+    background-color: #007bff;
+}
+.header-nav-button.register:hover {
+    background-color: #0056b3;
+}
+
+.user-menu-button:hover, .main-menu-button:hover, .header-nav-button:hover {
+    background-color: #555;
+}
+
+.arrow {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 0.8em;
+    transition: transform 0.2s;
+}
+
+.arrow.up {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    margin-top: 5px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    min-width: 160px;
+    padding: 5px 0;
+}
+
+.user-dropdown {
+    right: 0;
+}
+
+.main-dropdown {
+    left: 0;
+}
+
+.dropdown-menu a, .dropdown-menu button {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.dropdown-menu a:hover, .dropdown-menu button:hover {
+    background-color: #f0f0f0;
+}
+
+.auth-links {
+    display: flex;
+    gap: 10px;
+}
+
+/* --- NUEVO ESTILO PARA LA CAMPANA --- */
+/* Cambiamos el color del ícono para que coincida con el texto del header */
+.bell-icon-wrapper {
+    color: white; /* O el color que prefieras, ej: #f0f0f0 */
+    font-size: 22px; /* Ajusta el tamaño si es necesario */
+}
