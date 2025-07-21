@@ -1,0 +1,1 @@
+/Users/diego/Developer/Carpibus-mobile/android/app/build/intermediates/cxx/RelWithDebInfo/4w2e3c19/obj/arm64-v8a
